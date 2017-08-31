@@ -1,4 +1,9 @@
 #include "WPILib.h"
+#include "Commands/Command.h"
+#include "CommandBase.h"
+#include "Subsystems/Pneumatics.h"
+#include "Commands/CmdDriveChangeMode.h"
+
 
 /**
  * This starter template is for building a robot program from the
@@ -7,10 +12,13 @@
  */
 class IterativeRobotDemo : public IterativeRobot
 {
-
+private:
+	Pneumatics *pneumatics;
+	Command *autonomousCommand;
 public:
 	IterativeRobotDemo()
 	{
+
 	}
 
 /**
@@ -19,7 +27,10 @@ public:
  * Use this method for default Robot-wide initialization which will
  * be called when the robot is first powered on.  It will be called exactly 1 time.
  */
-void RobotInit() {
+virtual void RobotInit() {
+	CommandBase::init();
+	pneumatics = new Pneumatics();
+	pneumatics->Start();
 }
 
 /**
@@ -65,6 +76,7 @@ void AutonomousPeriodic() {
  * the robot enters teleop mode.
  */
 void TeleopInit() {
+
 }
 
 /**

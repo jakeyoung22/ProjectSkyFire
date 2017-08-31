@@ -27,6 +27,17 @@
 	const int SOL_SHIFT_HIGH		= 0;
 	const int SOL_SHIFT_LOW			= 1;
 
+//Relay
+	const UINT32 RELAY_COMPRESSOR					= 1;
+
+	const UINT32 GPIO_PRESSURE						= 14;
+
+	const UINT32 ANALOG_PRESSURE_SENSOR				= 1;
+	const UINT32 ANALOG_RANGE_FINDER				= 2;
+
+	const float PNEUMATICS_PRESSURE_VOLTAGE_B		= 1.008;
+	const float PNEUMATICS_PRESSURE_VOLTAGE_M		= 63.344;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
