@@ -1,3 +1,10 @@
+/*
+ * OI.h
+ *
+ *  Created on: Sep 14, 2017
+ *      Author: jakey
+ */
+
 #ifndef OI_H
 #define OI_H
 
@@ -6,6 +13,8 @@ class OI {
 private:
 	Joystick *m_Driver, *m_Operator;
 
+	JoystickButton *m_Shift;
+	JoystickButton *m_driveType;
 public:
 	OI();
 		float driverLeftX();

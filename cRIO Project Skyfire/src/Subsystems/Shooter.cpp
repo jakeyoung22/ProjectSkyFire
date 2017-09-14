@@ -1,3 +1,10 @@
+/*
+ * Shooter.cpp
+ *
+ *  Created on: Sep 14, 2017
+ *      Author: jakey
+ */
+
 #include "Shooter.h"
 #include "../RobotMap.h"
 

@@ -1,3 +1,10 @@
+/*
+ * CommandBase.h
+ *
+ *  Created on: Sep 14, 2017
+ *      Author: jakey
+ */
+
 #ifndef COMMAND_BASE_H
 #define COMMAND_BASE_H
 

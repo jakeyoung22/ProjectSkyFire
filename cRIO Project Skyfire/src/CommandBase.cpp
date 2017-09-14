@@ -1,3 +1,10 @@
+/*
+ * CommandBase.cpp
+ *
+ *  Created on: Sep 14, 2017
+ *      Author: jakey
+ */
+
 #include "CommandBase.h"
 
 #include <Commands/Scheduler.h>

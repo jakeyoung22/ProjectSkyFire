@@ -1,3 +1,10 @@
+/*
+ * Shooter.h
+ *
+ *  Created on: Sep 14, 2017
+ *      Author: jakey
+ */
+
 #ifndef Shooter_H
 #define Shooter_H
 

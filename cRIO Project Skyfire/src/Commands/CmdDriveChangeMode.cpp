@@ -1,3 +1,10 @@
+/*
+ * CmdDriveChangeMode.cpp
+ *
+ *  Created on: Sep 14, 2017
+ *      Author: jakey
+ */
+
 #include "CmdDriveChangeMode.h"
 
 CmdDriveChangeMode::CmdDriveChangeMode() : CommandBase("CmdDriveChangeMode") {
@@ -7,7 +14,7 @@ CmdDriveChangeMode::CmdDriveChangeMode() : CommandBase("CmdDriveChangeMode") {
 
 // Called just before this Command runs the first time
 void CmdDriveChangeMode::Initialize() {
-	
+
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -27,10 +34,13 @@ bool CmdDriveChangeMode::IsFinished() {
 
 // Called once after isFinished returns true
 void CmdDriveChangeMode::End() {
-	
+
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void CmdDriveChangeMode::Interrupted() {
 }
+
+
+

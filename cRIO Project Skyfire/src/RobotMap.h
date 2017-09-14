@@ -1,24 +1,31 @@
+/*
+ * RobotMap.h
+ *
+ *  Created on: Sep 14, 2017
+ *      Author: jakey
+ */
+
 #ifndef ROBOTMAP_H
 #define ROBOTMAP_H
 
 //Drivetrain
-	const int PWM_LEFT_1 	= 1;
-	const int PWM_LEFT_2 	= 2;
-	const int PWM_LEFT_3 	= 3;
+	const int PWM_LEFT 	= 1;
+	//const int PWM_LEFT_2 	= 2;
+	//const int PWM_LEFT_3 	= 3;
 
 
-	const int PWM_RIGHT_1 	= 4;
-	const int PWM_RIGHT_2	= 5;
-	const int PWM_RIGHT_3	= 6;
+	const int PWM_RIGHT 	= 2;
+	//const int PWM_RIGHT_2	= 5;
+	//const int PWM_RIGHT_3	= 6;
 
 //Shooter
-	const int PWM_SHOOTER_1 = 7;
-	const int PWM_SHOOTER_2 = 8;
-	const int PWM_SHOOTER_3 = 9;
+	const int PWM_SHOOTER_1 = 3;
+	const int PWM_SHOOTER_2 = 4;
+	const int PWM_SHOOTER_3 = 5;
 
 //Intake
-	const int PWM_INTAKE_1 = 10;
-	const int PWM_INTAKE_2 = 11;
+	const int PWM_INTAKE_1 = 6;
+	const int PWM_INTAKE_2 = 7;
 
 //Motor Ramp Rate
 	const double MOTOR_RAMP_RATE = 24.0;

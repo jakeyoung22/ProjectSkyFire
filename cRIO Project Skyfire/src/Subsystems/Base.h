@@ -1,3 +1,10 @@
+/*
+ * Base.h
+ *
+ *  Created on: Sep 14, 2017
+ *      Author: jakey
+ */
+
 #ifndef Base_H
 #define Base_H
 
@@ -12,8 +19,10 @@ public:
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-	Victor *m_leftOne, *m_leftTwo, *m_leftThree, *m_rightOne, *m_rightTwo, *m_rightThree;
-	RobotDrive *m_driveOne, *m_driveTwo;
+	Victor *m_left, *m_right;
+	//Victor *m_leftOne, *m_leftTwo, *m_leftThree, *m_rightOne, *m_rightTwo, *m_rightThree;
+	RobotDrive *m_drive;
+	//RobotDrive *m_driveOne, *m_driveTwo;
 	DoubleSolenoid *m_solShift;
 
 		e_shift m_shift;

@@ -1,3 +1,10 @@
+/*
+ * Camera.h
+ *
+ *  Created on: Sep 14, 2017
+ *      Author: jakey
+ */
+
 #ifndef Camera_H
 #define Camera_H
 

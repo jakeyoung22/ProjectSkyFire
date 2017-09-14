@@ -1,3 +1,10 @@
+/*
+ * robot.cpp
+ *
+ *  Created on: Sep 14, 2017
+ *      Author: jakey
+ */
+
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "CommandBase.h"
@@ -29,6 +36,7 @@ public:
  */
 virtual void RobotInit() {
 	CommandBase::init();
+	autonomousCommand = NULL;
 	pneumatics = new Pneumatics();
 	pneumatics->Start();
 }
