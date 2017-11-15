@@ -16,8 +16,8 @@
 #include "OI.h"
 #include "Subsystems/Base.h"
 #include "Subsystems/Camera.h"
+#include "Subsystems/PowerScrew.h"
 #include "Subsystems/Shooter.h"
-#include "Subsystems/Intake.h"
 
 
 /**
@@ -34,7 +34,7 @@ public:
 	// Create a single static instance of all of your subsystems
 	static Base *base;
 	static Shooter *shooter;
-	static Intake *intake;
+	static PowerScrew *powerscrew;
 	static Camera *camera;
 
 

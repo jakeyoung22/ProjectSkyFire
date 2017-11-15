@@ -1,18 +1,19 @@
 /*
- * Intake.cpp
+ * PowerScrew.cpp
  *
  *  Created on: Sep 14, 2017
  *      Author: jakey
  */
 
-#include "Intake.h"
+#include "PowerScrew.h"
+
 #include "../RobotMap.h"
 
-Intake::Intake() : Subsystem("intake") {
+PowerScrew::PowerScrew() : Subsystem("powerscrew") {
 
 }
 
-void Intake::InitDefaultCommand() {
+void PowerScrew::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	// SetDefaultCommand(new MySpecialCommand());
 }

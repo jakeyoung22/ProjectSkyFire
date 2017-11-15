@@ -28,12 +28,25 @@ Base::Base() : Subsystem("base") {
 */
 	m_solShift 		= new DoubleSolenoid(SOL_SHIFT_HIGH, SOL_SHIFT_LOW);
 
+	m_relayBling = new Relay(RELAY_BLING);
+	m_bling= on;
+
 	m_drivetype = tank;
 
 	m_cmdTank = NULL;
 	m_cmdArcade = NULL;
 
 	m_shift = high;
+
+
+	m_leftEncoder	 = new Encoder(GPIO_LEFT_ENCODER_A, GPIO_LEFT_ENCODER_B, false);
+	m_rightEncoder = new Encoder(GPIO_RIGHT_ENCODER_A, GPIO_RIGHT_ENCODER_B, false);
+
+	m_leftEncoder->SetDistancePerPulse(DRV_DIST_PER_PULSE);
+	m_rightEncoder->SetDistancePerPulse(DRV_DIST_PER_PULSE);
+
+	m_leftEncoder->Start();
+	m_rightEncoder->Start();
 }
 
 void Base::InitDefaultCommand() {
@@ -56,6 +69,104 @@ void Base::Stop() {
 	m_driveTwo->StopMotor();
 	*/
 }
+
+float Base::SpeedLeft()
+{
+	return (float)(m_leftEncoder->GetRate());
+}
+
+float Base::SpeedRight()
+{
+	return (float)(m_rightEncoder->GetRate());
+}
+
+float Base::DistanceLeft() {
+	return (float)(m_leftEncoder->GetDistance());
+}
+
+float Base::DistanceRight() {
+	return (float)(m_rightEncoder->GetDistance());
+}
+
+void Base::Shift(Base::e_shift value)
+{
+	switch(value)
+	{
+		case low:
+			m_solShift->Set(DoubleSolenoid::kForward);
+			break;
+		case high:
+			m_solShift->Set(DoubleSolenoid::kReverse);
+			break;
+		default:
+			m_solShift->Set(DoubleSolenoid::kOff);
+			break;
+	}
+
+	m_shift = value;
+}
+
+void Base::driveType( Base::e_drivetype value )
+{
+	if (m_drivetype != value)
+	{
+		m_drivetype = value;
+		switch (m_drivetype)
+		{
+		case arcade:
+			SetDefaultCommand( m_cmdArcade );
+			break;
+		case tank:
+			cout << "Setting default command to tank" << std::endl;
+			SetDefaultCommand( m_cmdTank );
+			break;
+
+		default:
+			SetDefaultCommand( NULL );
+			cout << "Hm... no default drive command.  What happened?" << std::endl;
+			break;
+		}
+	}
+
+}
+
+
+void Base::JoystickTankDrive(float leftSpeed, float rightSpeed)
+{
+	m_drive->TankDrive(0-leftSpeed, rightSpeed, false );
+
+}
+
+void Base::JoystickArcadeDrive(float speed, float rotate)
+{
+	//	It appears that we need to pass the X axis (rotate) in the "speed"
+	//	parameter and the Y axis (speed) in the "rotate" parameter.  We've
+	//	decided to use the correct names here and let WPIlib just be crazy.
+	m_drive->ArcadeDrive( 0-rotate, speed, false);
+}
+
+
+
+void Base::updateBling(Base::e_bling Value)
+{
+	switch(Value)
+	{
+		case on:
+			m_relayBling->Set(Relay::kForward);
+			break;
+		case off:
+			m_relayBling->Set(Relay::kReverse);
+			break;
+		default:
+			m_relayBling->Set(Relay::kOff);
+			break;
+	}
+
+	m_bling = Value;
+}
+// Put methods for controlling this subsystem
+// here. Call these from Commands.
+
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

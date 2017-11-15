@@ -1,23 +1,41 @@
 /*
  * Shooter.h
  *
- *  Created on: Sep 14, 2017
+ *  Created on: Nov 13, 2017
  *      Author: jakey
  */
 
-#ifndef Shooter_H
-#define Shooter_H
+#ifndef SUBSYSTEMS_SHOOTER_H_
+#define SUBSYSTEMS_SHOOTER_H_
+
 
 #include <Commands/Subsystem.h>
+#include "WPILib.h"
+
 
 class Shooter : public Subsystem {
+public:
+
 private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
+	Victor	*m_frontMotor, *m_middleMotor, *m_backMotor;
+
+	Solenoid *m_Pusher;
+
+	float m_shooterRawSpeed;
 
 public:
+
 	Shooter();
+
 	void InitDefaultCommand();
+
+	void Stop();
+	void PushDisc( bool );	// Pushes bottom disc into rear motor, aka SHOOT!
+	void ShooterRawStart(float speed);
+	void SpeedIncrease();
+	void SpeedDecrease();
+
+
 };
 
-#endif  // Shooter_H
+#endif /* SUBSYSTEMS_SHOOTER_H_ */
