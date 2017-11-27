@@ -23,9 +23,9 @@
 	const UINT32 PWM_SHOOTER_2 = 4;
 	const UINT32 PWM_SHOOTER_3 = 5;
 
-//Intake
-	const int PWM_INTAKE_1 = 6;
-	const int PWM_INTAKE_2 = 7;
+//LeadScrew
+	const int PWM_LEAD = 6;
+
 
 //Motor Ramp Rate
 	const double MOTOR_RAMP_RATE = 24.0;
@@ -34,10 +34,12 @@
 	const UINT32 SOL_SHIFT_HIGH					= 0;
 	const UINT32 SOL_SHIFT_LOW					= 1;
 	const UINT32 SOL_SHOOTER_LOADER 			= 2;
+	const UINT32 SOL_SHOOTER_UNJAM				= 3;
 
 //Relay
 	const UINT32 RELAY_COMPRESSOR					= 1;
 	const UINT32 RELAY_BLING						= 2;
+	const UINT32 RELAY_CAMERA						= 3;
 
 	const UINT32 GPIO_PRESSURE						= 14;
 

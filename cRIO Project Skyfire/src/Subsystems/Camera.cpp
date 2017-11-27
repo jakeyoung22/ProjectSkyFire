@@ -10,6 +10,7 @@
 
 Camera::Camera() : Subsystem("camera") {
 
+	m_relayCamera = new Relay(RELAY_CAMERA);
 }
 
 void Camera::InitDefaultCommand() {
@@ -17,5 +18,14 @@ void Camera::InitDefaultCommand() {
 	// SetDefaultCommand(new MySpecialCommand());
 }
 
+void Camera::LightOn()
+{
+	m_relayCamera->Set(Relay::kForward);
+}
+
+void Camera::LightOff()
+{
+	m_relayCamera->Set(Relay::kReverse);
+}
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

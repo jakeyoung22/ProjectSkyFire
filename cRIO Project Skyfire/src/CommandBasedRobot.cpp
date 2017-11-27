@@ -18,16 +18,23 @@
  * IterativeRobot base class.  This template does nothing - it merely
  * provides method stubs that you can use to begin your implementation.
  */
-class CommandBasedRobot : public IterativeRobot
-{
+class CommandBasedRobot : public IterativeRobot {
+
 private:
 	Pneumatics *pneumatics;
 	Command *autonomousCommand;
 	LiveWindow *lw;
-	insight::InsightLT *display;
-	insight::DecimalData *disp_batteryVoltage;
-	insight::StringData *disp_pressureSensor;
+	//insight::InsightLT *display;
+	//insight::DecimalData *disp_batteryVoltage;
+	//insight::StringData *disp_pressureSensor;
 public:
+	CommandBasedRobot()
+		{
+			lw = NULL;
+			autonomousCommand = NULL;
+			pneumatics = NULL;
+
+		}
 
 /**
  * Robot-wide initialization code should go here.
@@ -35,9 +42,9 @@ public:
  * Use this method for default Robot-wide initialization which will
  * be called when the robot is first powered on.  It will be called exactly 1 time.
  */
+private:
 virtual void RobotInit() {
 	CommandBase::init();
-		autonomousCommand = NULL;
 		lw = LiveWindow::GetInstance();
 		pneumatics = new Pneumatics();
 		pneumatics->Start();
