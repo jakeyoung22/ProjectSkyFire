@@ -25,6 +25,7 @@ private:
 
 	//BLING!!!
 	Relay *m_relayBling;
+	Relay *m_carHorn;
 
 	//Gear Shifter
 	DoubleSolenoid *m_solShift;
@@ -54,11 +55,13 @@ public:
 		void JoystickTankDrive(float speedLeft, float speedRight);		//Runs the robot in tank mode with the left and right speeds passed in
 		void SetFront(bool loaderFront);								//Makes the loader the front if true else makes the shooter the front
 		void SixCimDrive(bool sixCims);									//Makes the robot drive with six CIMs if passed true, else four CIMs
-		void Shift(Base::e_shift shift);									//Sets the robot into the gear passed in
-		void driveType(Base::e_drivetype drivetype);	//Sets the robot to the mode passed in
+		void Shift(Base::e_shift shift);								//Sets the robot into the gear passed in
+		void driveType(Base::e_drivetype drivetype);					//Sets the robot to the mode passed in
 		void updateBling(Base::e_bling bling);
 		void blingOn();
 		void blingOff();
+		void hornOn();
+		void hornOff();
 		void Stop();
 };
 

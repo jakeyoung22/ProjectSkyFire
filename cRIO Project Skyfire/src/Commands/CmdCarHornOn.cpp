@@ -1,32 +1,33 @@
-#include "CmdCameraLightOn.h"
+#include "CmdCarHornOn.h"
 
-CmdCameraLightOn::CmdCameraLightOn() : CommandBase("CmdCameraLightOn") {
+CmdCarHornOn::CmdCarHornOn() : CommandBase("CmdCarHornOn") {
 	// Use requires() here to declare subsystem dependencies
 	//Requires(shooter);
 }
 
 // Called just before this Command runs the first time
-void CmdCameraLightOn::Initialize() {
+void CmdCarHornOn::Initialize() {
 	
 }
 
 // Called repeatedly when this Command is scheduled to run
-void CmdCameraLightOn::Execute() {
-	camera->LightOn();
+void CmdCarHornOn::Execute() {
+	base->hornOn();
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdCameraLightOn::IsFinished() {
+bool CmdCarHornOn::IsFinished() {
 	return true;
 }
 
 // Called once after isFinished returns true
-void CmdCameraLightOn::End() {
-	
+void CmdCarHornOn::End() {
+	base->hornOff();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdCameraLightOn::Interrupted() {
+void CmdCarHornOn::Interrupted() {
+	End();
 }

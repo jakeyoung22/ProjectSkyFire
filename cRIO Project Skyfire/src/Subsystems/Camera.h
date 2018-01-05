@@ -13,7 +13,7 @@
 
 class Camera : public Subsystem {
 public:
-	Relay *m_relayCamera;
+
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
@@ -23,8 +23,7 @@ public:
 	Camera();
 
 	void InitDefaultCommand();
-	void LightOn();
-	void LightOff();
+
 };
 
 #endif  // Camera_H

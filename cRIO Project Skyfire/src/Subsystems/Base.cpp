@@ -31,6 +31,8 @@ Base::Base() : Subsystem("base") {
 	m_relayBling = new Relay(RELAY_BLING);
 	m_bling= on;
 
+	m_carHorn	= new Relay(RELAY_HORN);
+
 	m_drivetype = tank;
 
 	m_cmdTank = NULL;
@@ -163,6 +165,16 @@ void Base::updateBling(Base::e_bling Value)
 	}
 
 	m_bling = Value;
+}
+
+void Base::hornOn()
+{
+	m_carHorn->Set(Relay::kForward);
+}
+
+void Base::hornOff()
+{
+	m_carHorn->Set(Relay::kReverse);
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

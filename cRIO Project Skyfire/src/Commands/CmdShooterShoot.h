@@ -1,16 +1,14 @@
-#ifndef CmdCameraLightOn_H
-#define CmdCameraLightOn_H
+#ifndef CMDSHOOTERSHOOT_H
+#define CMDSHOOTERSHOOT_H
 
 #include "../CommandBase.h"
 
 /**
- *
- *
  * @author jakey
  */
-class CmdCameraLightOn: public CommandBase {
+class CmdShooterShoot: public CommandBase {
 public:
-	CmdCameraLightOn();
+	CmdShooterShoot();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

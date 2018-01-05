@@ -1,5 +1,5 @@
-#ifndef CmdCameraLightOff_H
-#define CmdCameraLightOff_H
+#ifndef CmdCarHornOff_H
+#define CmdCarHornOff_H
 
 #include "../CommandBase.h"
 
@@ -8,9 +8,9 @@
  *
  * @author jakey
  */
-class CmdCameraLightOff: public CommandBase {
+class CmdCarHornOff: public CommandBase {
 public:
-	CmdCameraLightOff();
+	CmdCarHornOff();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

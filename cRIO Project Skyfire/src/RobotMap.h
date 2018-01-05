@@ -39,7 +39,7 @@
 //Relay
 	const UINT32 RELAY_COMPRESSOR					= 1;
 	const UINT32 RELAY_BLING						= 2;
-	const UINT32 RELAY_CAMERA						= 3;
+	const UINT32 RELAY_HORN							= 3;
 
 	const UINT32 GPIO_PRESSURE						= 14;
 
@@ -63,7 +63,7 @@
 //
 #define SHOOTER_SPEED_FRONT   (SHOOTER_SPEED_MAX * 0.95)
 //	Speed step down from Front to middle, and again from middle to back
-#define SHOOTER_SPEED_FACTOR 0.99
+#define SHOOTER_SPEED_FACTOR 0.69
 //	Maximum observed shooter speed
 #define SHOOTER_SPEED_MAX	115
 //	Time that the disc pusher should remain forward after pushing
@@ -73,7 +73,7 @@
 //	Speed at or over which OkayToShoot() should return TRUE
 #define SHOOTER_OKAY_TO_SHOOT 90
 //	If the PID loop isn't working, use this power setting to spin the wheels
-#define SHOOTER_RAW_SPEED  1.0f
+#define SHOOTER_RAW_SPEED  .69f
 //  Slow speed for pyramid shot without PID
 #define SHOOTER_SLOW_SPEED 0.8f
 //	When allowing a speed stepping, incr by this.  Don't think is used.
