@@ -4,7 +4,7 @@
 #include "../CommandBase.h"
 
 /**
- * @author jakey
+ * @author 1319
  */
 class CmdShooterMotorStart: public CommandBase {
 public:

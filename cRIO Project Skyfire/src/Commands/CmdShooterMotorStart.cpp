@@ -17,8 +17,8 @@ void CmdShooterMotorStart::Execute()
 	cout << "CmdShooterMotorStart Execute" << std::endl;
 	//if(!deck->NearBottom() || DriverStation::GetInstance()->IsAutonomous())
 	//{
-		shooter->ShooterRawStart(1.0f);
-
+		shooter->RunMotors();	
+		RecordExecute();
 	//}
 }
 

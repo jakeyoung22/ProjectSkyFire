@@ -1,14 +1,14 @@
-#ifndef CMDSHOOTERMOTORSTOP_H
-#define CMDSHOOTERMOTORSTOP_H
+#ifndef CMDSHOOTERSPEEDTOGGLE_H
+#define CMDSHOOTERSPEEDTOGGLE_H
 
 #include "../CommandBase.h"
 
 /**
  * @author 1319
  */
-class CmdShooterMotorStop: public CommandBase {
+class CmdShooterSpeedToggle: public CommandBase {
 public:
-	CmdShooterMotorStop();
+	CmdShooterSpeedToggle();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

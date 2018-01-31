@@ -1,32 +1,32 @@
-#include "CmdShooterPusherShot.h"
+#include "CmdTestShooterMotors.h"
+#include "math.h"
 
-CmdShooterPusherShot::CmdShooterPusherShot() : CommandBase("CmdShooterPusherShot") {
+CmdTestShooterMotors::CmdTestShooterMotors() {
 	// Use requires() here to declare subsystem dependencies
-	//Requires(shooter);
+	Requires(shooter);
 }
 
 // Called just before this Command runs the first time
-void CmdShooterPusherShot::Initialize() {
+void CmdTestShooterMotors::Initialize() {
 	
 }
 
 // Called repeatedly when this Command is scheduled to run
-void CmdShooterPusherShot::Execute() {
-	shooter->PushDisc( true );
-
+void CmdTestShooterMotors::Execute() {
+	shooter->SetRawMotorSpeed( fabs(oi->driverRightT()) );
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdShooterPusherShot::IsFinished() {
-	return true;
+bool CmdTestShooterMotors::IsFinished() {
+	return false;
 }
 
 // Called once after isFinished returns true
-void CmdShooterPusherShot::End() {
+void CmdTestShooterMotors::End() {
 	
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdShooterPusherShot::Interrupted() {
+void CmdTestShooterMotors::Interrupted() {
 }

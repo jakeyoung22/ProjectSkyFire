@@ -1,5 +1,5 @@
-#ifndef CMDSHOOTERPUSHERRETRACT_H
-#define CMDSHOOTERPUSHERRETRACT_H
+#ifndef CMDSHOOTERWAITFORSPEED_H
+#define CMDSHOOTERWAITFORSPEED_H
 
 #include "../CommandBase.h"
 
@@ -8,9 +8,12 @@
  *
  * @author WindRiver
  */
-class CmdShooterPusherRetract: public CommandBase {
+class CmdShooterWaitForSpeed: public CommandBase {
+private:
+
+	//UINT32 basePacketNumber;
 public:
-	CmdShooterPusherRetract();
+	CmdShooterWaitForSpeed();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

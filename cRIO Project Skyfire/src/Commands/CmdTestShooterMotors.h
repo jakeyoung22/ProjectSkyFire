@@ -1,14 +1,12 @@
-#ifndef CMDSHOOTERMOTORSTOP_H
-#define CMDSHOOTERMOTORSTOP_H
+#ifndef CMDTESTSHOOTERMOTORS_H
+#define CMDTESTSHOOTERMOTORS_H
 
 #include "../CommandBase.h"
 
-/**
- * @author 1319
- */
-class CmdShooterMotorStop: public CommandBase {
+
+class CmdTestShooterMotors: public CommandBase {
 public:
-	CmdShooterMotorStop();
+	CmdTestShooterMotors();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

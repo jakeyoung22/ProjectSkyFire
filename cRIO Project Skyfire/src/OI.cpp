@@ -9,14 +9,17 @@
 #include "Robotmap.h"
 #include <WPILib.h>
 #include "xb360map.h"
+#include "utilities.h"
 #include "math.h"
 #include "Commands/CmdDriveShiftToggle.h"
-#include "Commands/CmdDriveChangeMode.h"
+//#include "Commands/CmdDriveChangeMode.h"
 #include "Commands/CmdBlingToggle.h"
-#include "Commands/CmdShooterMotorStart.h"
-#include "Commands/CmdShooterMotorStop.h"
-#include "Commands/CgLoaderAction.h"
-#include "Commands/CmdCarHornOn.h"
+#include "Commands/CmdShooterShoot.h"
+#include "Commands/CmdShooterMotorToggle.h"
+//#include "Commands/CmdShooterSpeedIncrease.h"
+//#include "Commands/CmdShooterSpeedDecrease.h"
+#include "Commands/CmdShooterSpeedToggle.h"
+//#include "Commands/CmdCarHornOn.h"
 
 
 
@@ -29,8 +32,8 @@ OI::OI() {
 
 
 //Driver Button Bindings
-	m_Driver_Y = new JoystickButton(m_Driver,XB360_Y);
-	m_Driver_A = new JoystickButton(m_Driver,XB360_A);
+	//m_Driver_Y = new JoystickButton(m_Driver,XB360_Y);
+	//m_Driver_A = new JoystickButton(m_Driver,XB360_A);
 	m_Driver_X = new JoystickButton(m_Driver,XB360_X);
 	//m_Driver_B = new JoystickButton(m_Driver,XB360_B);
 	m_Driver_BACK = new JoystickButton(m_Driver,XB360_BACK);
@@ -49,14 +52,14 @@ OI::OI() {
 	//m_Operator_LB = new JoystickButton(m_Operator,XB360_BUMPER_LEFT);
 
 //Driver Commands
-	m_Driver_Y->WhenPressed(new CmdShooterMotorStart());
-	m_Driver_A->WhenPressed(new CmdShooterMotorStop());
+	//m_Driver_Y->WhenPressed(new CmdShooterMotorStart());
+	//m_Driver_A->WhenPressed(new CmdShooterMotorStop());
 	m_Driver_X->WhenPressed(new CmdBlingToggle());
 	//m_Driver_B->WhenPressed(new ());
-	m_Driver_BACK->WhileHeld(new CmdCarHornOn());
-	m_Driver_START->WhenPressed(new CmdDriveChangeMode());
+	m_Driver_BACK->WhileHeld(new CmdShooterMotorToggle());
+	m_Driver_START->WhenPressed(new CmdShooterSpeedToggle());
 	m_Driver_RB->WhenPressed(new CmdDriveShiftToggle());
-	m_Driver_LB->WhenPressed(new CgLoaderAction());
+	m_Driver_LB->WhenPressed(new CmdShooterShoot());
 
 //Operator Commands
 	//m_Operator_Y->WhenPressed(new CmdShooterMotorStart());
@@ -109,3 +112,15 @@ float OI::driverLeftT()
 	return (m_Driver->GetRawAxis(XB360_AXIS_TRIGGER_L));
 }
 
+float OI::scaleAxis( float inp )
+{
+	const float k = 21;
+	const float y = 22;
+
+	float filteredInput = fabs(inp);
+
+	if (filteredInput < AXIS_FILTER )
+		filteredInput = 0.0;
+
+	return (pow( y, filteredInput ) - 1) / k * sign(inp);
+}

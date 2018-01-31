@@ -32,12 +32,13 @@ public:
 		float driveScale(float);
 
 
+
 private:
 	//Driver Buttons
-		JoystickButton *m_Driver_Y;
+		//JoystickButton *m_Driver_Y;
 		JoystickButton *m_Driver_X;
 		//JoystickButton *m_Driver_B;
-		JoystickButton *m_Driver_A;
+		//JoystickButton *m_Driver_A;
 		JoystickButton *m_Driver_BACK;
 		JoystickButton *m_Driver_START;
 		JoystickButton *m_Driver_RB;
@@ -53,6 +54,8 @@ private:
 		//JoystickButton *m_Operator_RB;
 		//JoystickButton *m_Operator_LB;
 
+		static float scaleAxis( float inp );
+		const static float  AXIS_FILTER = 0.04;
 
 };
 

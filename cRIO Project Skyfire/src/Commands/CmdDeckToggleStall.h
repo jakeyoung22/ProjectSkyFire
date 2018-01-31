@@ -1,16 +1,14 @@
-#ifndef CmdShooterPusherShot_H
-#define CmdShooterPusherShot_H
+#ifndef CMDDECKTOGGLESTALL_H
+#define CMDDECKTOGGLESTALL_H
 
 #include "../CommandBase.h"
 
 /**
- *
- *
- * @author jakey
+ * @author 1319
  */
-class CmdShooterPusherShot: public CommandBase {
+class CmdDeckToggleStall: public CommandBase {
 public:
-	CmdShooterPusherShot();
+	CmdDeckToggleStall();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

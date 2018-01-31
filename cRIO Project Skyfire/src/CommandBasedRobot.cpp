@@ -11,6 +11,8 @@
 #include "Subsystems/Pneumatics.h"
 #include "Commands/CmdDriveChangeMode.h"
 #include "InsightLT/InsightLT.h"
+#include "Commands/CmdDriveWithJoystickTank.h"
+#include "Commands/CmdDriveWithJoystickArcade.h"
 
 
 /**
