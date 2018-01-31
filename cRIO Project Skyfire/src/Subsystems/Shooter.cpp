@@ -14,9 +14,9 @@ Shooter::Shooter() : PIDSubsystem("shooter",Kp, Ki, Kd, Kf) {
 
 
 
-	m_frontMotor	 = new Victor (PWM_SHOOTER_1);
-	m_middleMotor	 = new Victor(PWM_SHOOTER_2 );
-	m_backMotor		 = new Victor(PWM_SHOOTER_3);
+	m_frontMotor	 = new Victor (PWM_SHOOTER_FRONT);
+	m_middleMotor	 = new Victor(PWM_SHOOTER_MIDDLE );
+	m_backMotor		 = new Victor(PWM_SHOOTER_BACK);
 
 	m_frontEncoder = new Encoder(GPIO_FRONT_SHOOTER_ENCODER_A, GPIO_FRONT_SHOOTER_ENCODER_B);
 	m_frontEncoder->SetDistancePerPulse( 1 / SHOOTER_FRONT_ENC_CPR );

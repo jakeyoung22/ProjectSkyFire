@@ -13,11 +13,13 @@
 #include "math.h"
 #include "Commands/CmdDriveShiftToggle.h"
 //#include "Commands/CmdDriveChangeMode.h"
-#include "Commands/CmdBlingToggle.h"
+//#include "Commands/CmdBlingToggle.h"
 #include "Commands/CmdShooterShoot.h"
 #include "Commands/CmdShooterMotorToggle.h"
 //#include "Commands/CmdShooterSpeedIncrease.h"
 //#include "Commands/CmdShooterSpeedDecrease.h"
+#include "Commands/CmdShooterClearJam.h"
+
 #include "Commands/CmdShooterSpeedToggle.h"
 //#include "Commands/CmdCarHornOn.h"
 
@@ -54,15 +56,15 @@ OI::OI() {
 //Driver Commands
 	//m_Driver_Y->WhenPressed(new CmdShooterMotorStart());
 	//m_Driver_A->WhenPressed(new CmdShooterMotorStop());
-	m_Driver_X->WhenPressed(new CmdBlingToggle());
+	m_Driver_X->WhenPressed(new CmdShooterClearJam(.25f));
 	//m_Driver_B->WhenPressed(new ());
-	m_Driver_BACK->WhileHeld(new CmdShooterMotorToggle());
+	m_Driver_BACK->WhenPressed(new CmdShooterMotorToggle());
 	m_Driver_START->WhenPressed(new CmdShooterSpeedToggle());
 	m_Driver_RB->WhenPressed(new CmdDriveShiftToggle());
 	m_Driver_LB->WhenPressed(new CmdShooterShoot());
 
 //Operator Commands
-	//m_Operator_Y->WhenPressed(new CmdShooterMotorStart());
+	//m_Operator_Y->WhenPressed(new CmdShooterClearJam(.25f));
 	//m_Operator_A->WhenPressed(new CmdShooterMotorStop());
 	//m_Operator_X->WhenPressed(new CmdBlingToggle());
 	//m_Operator_B->WhenPressed(new ());

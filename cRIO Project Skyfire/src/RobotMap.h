@@ -19,9 +19,9 @@
 	//const int PWM_RIGHT_3	= 6;
 
 //Shooter
-	const UINT32 PWM_SHOOTER_1 = 3;
-	const UINT32 PWM_SHOOTER_2 = 4;
-	const UINT32 PWM_SHOOTER_3 = 5;
+	const UINT32 PWM_SHOOTER_FRONT = 3;
+	const UINT32 PWM_SHOOTER_MIDDLE = 4;
+	const UINT32 PWM_SHOOTER_BACK = 5;
 
 //LeadScrew
 	const int PWM_LEAD = 6;
@@ -41,13 +41,9 @@
 	const UINT32 RELAY_BLING						= 2;
 	const UINT32 RELAY_HORN							= 3;
 
+//Pressure Switch
 	const UINT32 GPIO_PRESSURE						= 14;
 
-	const UINT32 ANALOG_PRESSURE_SENSOR				= 1;
-	const UINT32 ANALOG_RANGE_FINDER				= 2;
-
-	const float PNEUMATICS_PRESSURE_VOLTAGE_B		= 1.008;
-	const float PNEUMATICS_PRESSURE_VOLTAGE_M		= 63.344;
 
 //Encoders
 	const UINT32 GPIO_LEFT_ENCODER_A 				= 1;
