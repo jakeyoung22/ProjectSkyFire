@@ -26,7 +26,7 @@ CommandBase::CommandBase() : Command()
 // Initialize a single static instance of all of your subsystems. The following
 // line should be repeated for each subsystem in the project.
 Base* CommandBase::base = NULL;
-PowerScrew* CommandBase::powerscrew	= NULL;
+Angulator* CommandBase::angulator	= NULL;
 Shooter* CommandBase::shooter = NULL;
 Camera* CommandBase::camera = NULL;
 OI* CommandBase::oi = NULL;
@@ -45,7 +45,7 @@ void CommandBase::init()
 	//examplesubsystem = new ExampleSubsystem();
 
 	base = new Base();
-	powerscrew = new PowerScrew();
+	angulator = new Angulator();
 	camera = new Camera();
 	shooter = new Shooter();
 

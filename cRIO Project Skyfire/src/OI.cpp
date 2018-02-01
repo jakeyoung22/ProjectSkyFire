@@ -12,12 +12,12 @@
 #include "utilities.h"
 #include "math.h"
 #include "Commands/CmdDriveShiftToggle.h"
-//#include "Commands/CmdDriveChangeMode.h"
-//#include "Commands/CmdBlingToggle.h"
+#include "Commands/CmdDriveChangeMode.h"
+#include "Commands/CmdBlingToggle.h"
 #include "Commands/CmdShooterShoot.h"
 #include "Commands/CmdShooterMotorToggle.h"
-//#include "Commands/CmdShooterSpeedIncrease.h"
-//#include "Commands/CmdShooterSpeedDecrease.h"
+#include "Commands/CmdShooterSpeedIncrease.h"
+#include "Commands/CmdShooterSpeedDecrease.h"
 #include "Commands/CmdShooterClearJam.h"
 
 #include "Commands/CmdShooterSpeedToggle.h"
@@ -34,9 +34,9 @@ OI::OI() {
 
 
 //Driver Button Bindings
-	//m_Driver_Y = new JoystickButton(m_Driver,XB360_Y);
-	//m_Driver_A = new JoystickButton(m_Driver,XB360_A);
-	m_Driver_X = new JoystickButton(m_Driver,XB360_X);
+	m_Driver_Y = new JoystickButton(m_Driver,XB360_Y);
+	m_Driver_A = new JoystickButton(m_Driver,XB360_A);
+	//m_Driver_X = new JoystickButton(m_Driver,XB360_X);
 	//m_Driver_B = new JoystickButton(m_Driver,XB360_B);
 	m_Driver_BACK = new JoystickButton(m_Driver,XB360_BACK);
 	m_Driver_START = new JoystickButton(m_Driver,XB360_START);
@@ -49,14 +49,14 @@ OI::OI() {
 	//m_Operator_X = new JoystickButton(m_Operator,XB360_X);
 	//m_Operator_B = new JoystickButton(m_Operator,XB360_B);
 	//m_Operator_BACK = new JoystickButton(m_Operator,XB360_BACK);
-	//m_Operator_START = new JoystickButton(m_Operator,XB360_START);
-	//m_Operator_RB = new JoystickButton(m_Operator,XB360_BUMPER_RIGHT);
-	//m_Operator_LB = new JoystickButton(m_Operator,XB360_BUMPER_LEFT);
+	m_Operator_START = new JoystickButton(m_Operator,XB360_START);
+	m_Operator_RB = new JoystickButton(m_Operator,XB360_BUMPER_RIGHT);
+	m_Operator_LB = new JoystickButton(m_Operator,XB360_BUMPER_LEFT);
 
 //Driver Commands
-	//m_Driver_Y->WhenPressed(new CmdShooterMotorStart());
-	//m_Driver_A->WhenPressed(new CmdShooterMotorStop());
-	m_Driver_X->WhenPressed(new CmdShooterClearJam(.25f));
+	m_Driver_Y->WhenPressed(new CmdDriveChangeMode());
+	m_Driver_A->WhenPressed(new CmdShooterClearJam(.25f));
+	//m_Driver_X->WhenPressed(new CmdShooterClearJam(.25f));
 	//m_Driver_B->WhenPressed(new ());
 	m_Driver_BACK->WhenPressed(new CmdShooterMotorToggle());
 	m_Driver_START->WhenPressed(new CmdShooterSpeedToggle());
@@ -69,9 +69,9 @@ OI::OI() {
 	//m_Operator_X->WhenPressed(new CmdBlingToggle());
 	//m_Operator_B->WhenPressed(new ());
 	//m_Operator_BACK->WhileHeld(new CmdCarHornOn());
-	//m_Operator_START->WhenPressed(new CmdDriveChangeMode());
-	//m_Operator_RB->WhenPressed(new CmdDriveShiftToggle());
-	//m_Operator_LB->WhenPressed(new CgLoaderAction());
+	m_Operator_START->WhenPressed(new CmdBlingToggle());
+	m_Operator_RB->WhenPressed(new CmdShooterSpeedIncrease());
+	m_Operator_LB->WhenPressed(new CmdShooterSpeedDecrease());
 
 
 }
@@ -114,6 +114,10 @@ float OI::driverLeftT()
 	return (m_Driver->GetRawAxis(XB360_AXIS_TRIGGER_L));
 }
 
+float OI::operateLeftY()
+{
+	return driveScale(m_Operator->GetRawAxis(XB360_AXIS_LEFT_Y));
+}
 float OI::scaleAxis( float inp )
 {
 	const float k = 21;

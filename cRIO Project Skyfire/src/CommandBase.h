@@ -14,9 +14,9 @@
 #include <Commands/Command.h>
 
 #include "OI.h"
+#include "Subsystems/Angulator.h"
 #include "Subsystems/Base.h"
 #include "Subsystems/Camera.h"
-#include "Subsystems/PowerScrew.h"
 #include "Subsystems/Shooter.h"
 #include "tools/tinyxml2.h"
 
@@ -35,7 +35,7 @@ public:
 	// Create a single static instance of all of your subsystems
 	static Base *base;
 	static Shooter *shooter;
-	static PowerScrew *powerscrew;
+	static Angulator *angulator;
 	static Camera *camera;
 
 

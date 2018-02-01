@@ -51,8 +51,13 @@
 	const UINT32 GPIO_RIGHT_ENCODER_A 				= 3;
 	const UINT32 GPIO_RIGHT_ENCODER_B 				= 4;
 
-	const UINT32 GPIO_FRONT_SHOOTER_ENCODER_A 	= 5;
-	const UINT32 GPIO_FRONT_SHOOTER_ENCODER_B 	= 6;
+	const UINT32 GPIO_FRONT_SHOOTER_ENCODER_A 		= 5;
+	const UINT32 GPIO_FRONT_SHOOTER_ENCODER_B 		= 6;
+
+	const UINT32 GPIO_DECK_LOW_LIMIT				= 7;
+
+	const UINT32 GPIO_DECK_PIVOT_ENCODER_A			= 8;
+	const UINT32 GPIO_DECK_PIVOT_ENCODER_B			= 9;
 
 
 	//	todo: Set this speed to something tolerable
@@ -82,29 +87,10 @@
 	//	Notes:
 	//	RPM of motor ~5000, 1.45 gearing ratio, 32 encoder clicks per revolution
 
-	//	todo: Set the lift speed to a reasonable amount
-	const float  SECONDARY_LIFT_SPEED = 0.5;
 
-	const float DECK_ANGLE_TOLERANCE = 1.2f;
-	#define DECK_ANGLE_BOTTOM 0
-	#define DECK_ANGLE_TOP 46
-	#define DECK_ANGLE_FLOORLOAD  10
-	//	Angle at which we shoot unless adjusted
-	#define DECK_ANGLE_SHOOTING  45
-	//	Increment by which the shooting angle can be adjusted
-	#define DECK_ANGLE_INCREMENT 2.0
-	//	Angle to raise deck to so the prop will drop out.  Note that this is actually
-	//	the angle above where the deck starts propped up at, because when we power up
-	//	the encoder thinks it's at 0.  We could override this behavior, by creating
-	//	a decendant class of the Encoder, or otherwise added the propped angle to
-	//	our calculations if we start up with the deck swich registering false, until
-	//	the deck switch registers true.  I might talk myself into this.
-	#define DECK_ANGLE_DROP_PROP  70
-	#define PROPPED_DECK_ANGLE 49
 
-	const float DECK_STALL_SPEED = 0.225;	// SILVER: 0.20;
-	const float DECK_MOTOR_ASCENT_SPEED = 0.7;
-	const float DECK_MOTOR_DESCENT_SPEED = 0.07;
+	const float ANGLE_RATE_UP = -.7;
+	const float ANGLE_RATE_DOWN = .4;
 
 	const float DRV_DIST_PER_PULSE = 4.0 * 3.1415926358979323846264338 / 360;
 	//	circ = D * PI, 4 Inch dia
