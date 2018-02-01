@@ -14,11 +14,11 @@ void CmdAngulatorByJoystick::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void CmdAngulatorByJoystick::Execute() {
-	if (!replaying())
+
 		m_speed = oi->operateLeftY();
 	
 	angulator->MoveByJoystick( m_speed );
-	RecordExecute();
+
 }
 
 // Make this return true when this Command no longer needs to run execute()

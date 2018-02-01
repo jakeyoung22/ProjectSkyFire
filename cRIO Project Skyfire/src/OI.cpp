@@ -79,7 +79,6 @@ OI::OI() {
 
 
 
-//Operator
 float OI::driveScale(float in)
 {
 	return ((fabs(in) < 0.01) ? 0 : in);
@@ -106,17 +105,32 @@ float OI::driverRightY()
 
 float OI::driverRightT()
 {
-	return (m_Driver->GetRawAxis(XB360_AXIS_TRIGGER_R));
+	return scaleAxis(m_Driver->GetRawAxis(XB360_AXIS_TRIGGER_R));
 }
 
 float OI::driverLeftT()
 {
-	return (m_Driver->GetRawAxis(XB360_AXIS_TRIGGER_L));
+	return scaleAxis(m_Driver->GetRawAxis(XB360_AXIS_TRIGGER_L));
 }
 
 float OI::operateLeftY()
 {
-	return driveScale(m_Operator->GetRawAxis(XB360_AXIS_LEFT_Y));
+	return scaleAxis(m_Operator->GetRawAxis(XB360_AXIS_LEFT_Y));
+}
+
+float OI::operateLeftX()
+{
+	return scaleAxis(m_Operator->GetRawAxis(XB360_AXIS_LEFT_X));
+}
+
+float OI::operateRightX()
+{
+	return scaleAxis(m_Operator->GetRawAxis(XB360_AXIS_RIGHT_X));
+}
+
+float OI::operateRightY()
+{
+	return scaleAxis(m_Operator->GetRawAxis(XB360_AXIS_RIGHT_Y));
 }
 float OI::scaleAxis( float inp )
 {

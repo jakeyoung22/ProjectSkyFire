@@ -92,8 +92,8 @@
 	const float ANGLE_RATE_UP = -.7;
 	const float ANGLE_RATE_DOWN = .4;
 
-	const float DRV_DIST_PER_PULSE = 4.0 * 3.1415926358979323846264338 / 360;
-	//	circ = D * PI, 4 Inch dia
+	const float DRV_DIST_PER_PULSE = 8.0 * 3.1415926358979323846264338 / 360;
+	//	circ = D * PI, 8 Inch dia
 
 	const float DRIVE_NUDGE_TIME = 0.2f;
 
