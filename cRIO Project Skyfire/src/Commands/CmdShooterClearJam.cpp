@@ -13,7 +13,7 @@ void CmdShooterClearJam::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void CmdShooterClearJam::Execute() {
 	shooter->SetBackMotorOnly(-0.40f);
-	RecordExecute();
+
 }
 
 // Make this return true when this Command no longer needs to run execute()

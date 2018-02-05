@@ -13,7 +13,7 @@ void CmdTestShooterMotors::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void CmdTestShooterMotors::Execute() {
-	shooter->SetRawMotorSpeed( fabs(oi->driverLeftT()) );
+	shooter->SetRawMotorSpeed( fabs(oi->driverZ()) );
 }
 
 // Make this return true when this Command no longer needs to run execute()

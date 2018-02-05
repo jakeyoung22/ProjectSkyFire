@@ -19,13 +19,14 @@ void CmdBlingToggle::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void CmdBlingToggle::Execute() {
+	/*
 	if(base->updateBling() == Base::on){
 		base->updateBling(Base::off);
 	}
 	else {
 			base->updateBling(Base::on);
 		}
-
+*/
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -4,15 +4,17 @@
  *  Created on: Sep 14, 2017
  *      Author: jakey
  */
-
 #include "WPILib.h"
-#include "Commands/Command.h"
+
 #include "CommandBase.h"
-#include "Subsystems/Pneumatics.h"
+#include "Commands/Command.h"
 #include "Commands/CmdDriveChangeMode.h"
-#include "InsightLT/InsightLT.h"
-#include "Commands/CmdDriveWithJoystickTank.h"
-#include "Commands/CmdDriveWithJoystickArcade.h"
+
+#include "Utilities.h"
+
+#include "Subsystems/Pneumatics.h"
+
+#include <dirent.h>
 
 
 /**
@@ -23,19 +25,19 @@
 class CommandBasedRobot : public IterativeRobot {
 
 private:
-	Pneumatics *pneumatics;
 	Command *autonomousCommand;
-	LiveWindow *lw;
-	//insight::InsightLT *display;
-	//insight::DecimalData *disp_batteryVoltage;
-	//insight::StringData *disp_pressureSensor;
+		//LiveWindow *lw;
+	Pneumatics *pneumatics;
+
+	SendableChooser *sc;
 public:
 	CommandBasedRobot()
 		{
-			lw = NULL;
-			autonomousCommand = NULL;
-			pneumatics = NULL;
-
+		cout << "CommandBasedRobot Constructor..." << std::endl;
+				autonomousCommand = NULL;
+				//lw = NULL;
+				pneumatics = NULL;
+				sc = NULL;
 		}
 
 /**
@@ -47,10 +49,12 @@ public:
 private:
 virtual void RobotInit() {
 	CommandBase::init();
-		lw = LiveWindow::GetInstance();
+		//lw = LiveWindow::GetInstance();
 		pneumatics = new Pneumatics();
 		pneumatics->Start();
 		printf("Robot initialized.\n");
+
+		cout << "CommandBasedRobot::RobotInit complete." << std::endl;
 }
 
 /**
@@ -59,8 +63,10 @@ virtual void RobotInit() {
  * Use this method for initialization code which will be called each time
  * the robot enters disabled mode.
  */
+
 void DisabledInit() {
-	printf("Disabled mode initialized.\n");
+
+	cout << "**********************" << std::endl << "Enter Disabled Init" << std::endl;
 }
 
 /**
@@ -115,6 +121,7 @@ void TeleopInit() {
  * rate while the robot is in teleop mode.
  */
 void TeleopPeriodic() {
+	Scheduler::GetInstance()->Run();
 
 }
 
@@ -125,6 +132,7 @@ void TeleopPeriodic() {
  * the robot enters test mode.
  */
 void TestInit() {
+	cout << "**********************" << std::endl << "Entering Test Init" << std::endl;
 }
 
 /**

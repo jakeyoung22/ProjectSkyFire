@@ -15,7 +15,7 @@ void CmdShooterMotorStop::Initialize()
 void CmdShooterMotorStop::Execute()
 {
 	shooter->StopMotors();	
-	RecordExecute();
+
 }
 
 // Make this return true when this Command no longer needs to run execute()

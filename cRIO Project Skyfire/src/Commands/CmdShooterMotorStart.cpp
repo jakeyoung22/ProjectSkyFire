@@ -18,7 +18,7 @@ void CmdShooterMotorStart::Execute()
 	//if(!deck->NearBottom() || DriverStation::GetInstance()->IsAutonomous())
 	//{
 		shooter->RunMotors();	
-		RecordExecute();
+
 	//}
 }
 

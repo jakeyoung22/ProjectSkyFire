@@ -103,15 +103,11 @@ float OI::driverRightY()
 	return 0 - driveScale(m_Driver->GetRawAxis(XB360_AXIS_RIGHT_Y));
 }
 
-float OI::driverRightT()
+float OI::driverZ()
 {
-	return scaleAxis(m_Driver->GetRawAxis(XB360_AXIS_TRIGGER_R));
+	return scaleAxis(m_Driver->GetRawAxis(XB360_AXIS_TRIGGER));
 }
 
-float OI::driverLeftT()
-{
-	return scaleAxis(m_Driver->GetRawAxis(XB360_AXIS_TRIGGER_L));
-}
 
 float OI::operateLeftY()
 {
@@ -132,6 +128,12 @@ float OI::operateRightY()
 {
 	return scaleAxis(m_Operator->GetRawAxis(XB360_AXIS_RIGHT_Y));
 }
+
+float OI::operateZ()
+{
+	return scaleAxis(m_Operator->GetRawAxis(XB360_AXIS_TRIGGER));
+}
+
 float OI::scaleAxis( float inp )
 {
 	const float k = 21;

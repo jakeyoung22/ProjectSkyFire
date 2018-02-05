@@ -23,7 +23,7 @@ void CmdShooterShoot::Execute()
 	if(shooter->FrontMotorRawSpeed() > 0.0)
 	{
 		shooter->PushDisc( true );
-		RecordExecute();
+
 	}
 }
 
@@ -48,16 +48,4 @@ void CmdShooterShoot::Interrupted()
 	c->Start();	
 }
 
-void CmdShooterShoot::RecordInitialize()
-{
-	char buff[80];
-	sprintf(buff, "<shoot wait='%6.3f' />", m_waitTime );
-	CommonRecord("initialize", buff );
-}
 
-void CmdShooterShoot::LoadInitData( tinyxml2::XMLElement *data )
-{
-	tinyxml2::XMLElement *e = data->FirstChildElement();
-	
-	m_waitTime = e->FloatAttribute( "wait" );
-}

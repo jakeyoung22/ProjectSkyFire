@@ -18,65 +18,59 @@
 #define XB360_RIGHT_STICK 10
 
 // Axises, Left Stick, Right stick and the Trigger virtual Axis
-#define XB360_AXIS_LEFT_X	0
-#define XB360_AXIS_LEFT_Y   1
+#define XB360_AXIS_LEFT_X	1
+#define XB360_AXIS_LEFT_Y   2
 #define XB360_AXIS_RIGHT_X  4
 #define XB360_AXIS_RIGHT_Y  5
-#define XB360_AXIS_TRIGGER_L  2
-#define XB360_AXIS_TRIGGER_R  3
+#define XB360_AXIS_TRIGGER  3
+#define XB360_AXIS_DPAD_X   6
+//	I'm not sure about DPAD_X = 6 here,  A post (or two) on Chief Delphi says that this is Axis 6.  Apparently
+//	the DPAD-Y is Axis #7, but the driver's station won't pass but 6 axes.
 
 //	Note that the Triggers can be treated as a button by some fancy tricks
 
 #endif
 /* From http://www.chiefdelphi.com/forums/showthread.php?t=89510 
  * 
-
- X Axis: Left Thumbstick Left-Right
- X Axis Rotation: Right Thumbstick Left-Right
- Y Axis: Left Thumb Stick (Needs to be negated or else up-down controlls are inverted)
- Y Axis Rotation: Right Thumb Stick (Needs to be negated or else up-down controlls are inverted)
- Z Axis (>0): Left Trigger
- Z Axis (<0): Right Trigger
-
- 1: A Button
- 2: B Button
- 3: X Button
- 4: Y Button
- 5: Left Bumper
- 6: Right Bumper
- 7: Stop/Back Button
- 8: Start Button
- 9: Left Thumbstick Button
- 10: Right Thumbstick Button
-
- And this (post 1 on same thread);
-
- The buttons on the controller follow this mapping
-
- 1: A
- 2: B
- 3: X
- 4: Y
- 5: Left Bumper
- 6: Right Bumper
- 7: Back
- 8: Start
- 9: Left Joystick
- 10: Right Joystick
-
- The axis on the controller follow this mapping
- (all output is between -1 and 1)
- •1: Left Stick X Axis
- -Left:Negative ; Right: Positive
- •2: Left Stick Y Axis
- -Up: Negative ; Down: Positive
- •3: Triggers
- -Left: Positive ; Right: Negative
- •4: Right Stick X Axis
- -Left: Negative ; Right: Positive
- •5: Right Stick Y Axis
- -Up: Negative ; Down: Positive
- •6: Directional Pad (Not recommended, buggy)
-
-
- */
+X Axis: Left Thumbstick Left-Right
+X Axis Rotation: Right Thumbstick Left-Right
+Y Axis: Left Thumb Stick (Needs to be negated or else up-down controlls are inverted)
+Y Axis Rotation: Right Thumb Stick (Needs to be negated or else up-down controlls are inverted)
+Z Axis (>0): Left Trigger
+Z Axis (<0): Right Trigger
+1: A Button
+2: B Button
+3: X Button
+4: Y Button
+5: Left Bumper
+6: Right Bumper
+7: Stop/Back Button
+8: Start Button
+9: Left Thumbstick Button
+10: Right Thumbstick Button
+And this (post 1 on same thread);
+The buttons on the controller follow this mapping
+1: A
+2: B
+3: X
+4: Y
+5: Left Bumper
+6: Right Bumper
+7: Back
+8: Start
+9: Left Joystick
+10: Right Joystick
+The axis on the controller follow this mapping
+(all output is between -1 and 1)
+•1: Left Stick X Axis
+-Left:Negative ; Right: Positive
+•2: Left Stick Y Axis
+-Up: Negative ; Down: Positive
+•3: Triggers
+-Left: Positive ; Right: Negative
+•4: Right Stick X Axis
+-Left: Negative ; Right: Positive
+•5: Right Stick Y Axis
+-Up: Negative ; Down: Positive
+•6: Directional Pad (Not recommended, buggy)
+*/

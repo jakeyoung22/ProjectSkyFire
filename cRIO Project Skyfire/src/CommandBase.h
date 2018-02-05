@@ -18,6 +18,7 @@
 #include "Subsystems/Base.h"
 #include "Subsystems/Camera.h"
 #include "Subsystems/Shooter.h"
+#include "OI.h"
 #include "tools/tinyxml2.h"
 
 
@@ -32,6 +33,8 @@ public:
 	CommandBase(const char *name);
 	CommandBase();
 	static void init();
+
+public:
 	// Create a single static instance of all of your subsystems
 	static Base *base;
 	static Shooter *shooter;
@@ -41,27 +44,7 @@ public:
 
 	static OI *oi;
 
-public:
-	void startRecording( const char *filename );
-	void stopRecording();
 
-	virtual void RecordExecute( );
-	void CommonRecord( const char *element, const char * contents=NULL );
-	void CommonRecord( const char *element, const char * contents, const char * name );
-
-	virtual void LoadData( tinyxml2::XMLElement * data );
-	virtual void LoadInitData( tinyxml2::XMLElement *data );
-
-protected:
-	static FILE *recordingFile;
-	static UINT32 basePacketNumber;
-	static bool m_replaying;
-
-	static void replaying( bool value );
-
-public:
-	static bool recording();
-	static bool replaying();
 };
 
 #endif  // COMMAND_BASE_H

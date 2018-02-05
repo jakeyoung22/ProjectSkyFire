@@ -21,13 +21,13 @@ public:
 		float driverLeftY();
 		float driverRightX();
 		float driverRightY();
-		float driverRightT();
-		float driverLeftT();
+		float driverZ();
 
 		float operateLeftX();
 		float operateLeftY();
 		float operateRightX();
 		float operateRightY();
+		float operateZ();
 
 		float driveScale(float);
 

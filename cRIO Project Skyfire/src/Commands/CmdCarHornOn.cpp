@@ -12,7 +12,7 @@ void CmdCarHornOn::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void CmdCarHornOn::Execute() {
-	base->hornOn();
+	//base->hornOn();
 
 }
 
@@ -23,7 +23,7 @@ bool CmdCarHornOn::IsFinished() {
 
 // Called once after isFinished returns true
 void CmdCarHornOn::End() {
-	base->hornOff();
+	//base->hornOff();
 }
 
 // Called when another command which requires one or more of the same
