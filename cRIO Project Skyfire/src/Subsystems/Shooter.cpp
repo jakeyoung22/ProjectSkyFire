@@ -24,8 +24,8 @@ Shooter::Shooter() : PIDSubsystem("shooter",Kp, Ki, Kd, Kf) {
 
 	m_frontEncoder->Start();
 
-	m_Pusher = new Solenoid(SOL_SHOOTER_LOADER);
-	PushDisc(false);
+	m_SOLPusher = new DoubleSolenoid(SOL_SHOOTER_LOADER, SOL_PUSHER_RETRACT);
+
 
 	m_shooterRawSpeed = SHOOTER_RAW_SPEED;
 
@@ -140,9 +140,22 @@ void Shooter::StopMotors()
 	m_backMotor->StopMotor();
 }
 
-void Shooter::PushDisc( bool value )
+void Shooter::Pusher(Shooter::e_pusher value)
 {
-	m_Pusher->Set(value);
+	switch(value)
+	{
+		case retract:
+			m_SOLPusher->Set(DoubleSolenoid::kReverse);
+			break;
+		case shoot:
+			m_SOLPusher->Set(DoubleSolenoid::kForward);
+			break;
+		default:
+			m_SOLPusher->Set(DoubleSolenoid::kOff);
+			break;
+	}
+
+	m_Pusher = value;
 }
 
 void Shooter::ShowMotorSpeed()
@@ -164,7 +177,7 @@ void Shooter::PlaceSensorsOnLiveWindow(LiveWindow *lw)
 	lw->AddActuator("Shooter", "Front Motor", m_frontMotor );
 	lw->AddSensor( "Shooter", "Encoder", m_frontEncoder );
 
-	lw->AddActuator("Shooter", "Disc Pusher", m_Pusher );
+	lw->AddActuator("Shooter", "Disc Pusher", m_SOLPusher );
 }
 
 void Shooter::IncreaseShooterSpeed()

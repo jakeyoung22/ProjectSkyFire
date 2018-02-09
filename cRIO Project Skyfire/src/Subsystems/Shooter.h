@@ -17,7 +17,9 @@
 class Shooter : public PIDSubsystem {
 public:
 
+	enum e_pusher { unknown=0, shoot=1, retract=2};
 private:
+	e_pusher m_Pusher;
 
 	static const double Kp = 0.3;	//todo: These are WRONG... get better numbers
 	static const double Ki = 0.005;
@@ -27,7 +29,7 @@ private:
 	Victor	*m_frontMotor, *m_middleMotor, *m_backMotor;
 	Encoder *m_frontEncoder;
 
-	Solenoid *m_Pusher;
+	DoubleSolenoid *m_SOLPusher;
 
 	float m_targetSpeedFront;
 
@@ -55,7 +57,7 @@ public:
 	void RunMotors( float frontSpeed=SHOOTER_SPEED_FRONT );
 	void SetRawMotorSpeed( float frontSpeed );	// This is for internal use, and testing only
 	void StopMotors();
-	void PushDisc( bool );	// Pushes bottom disc into rear motor, aka SHOOT!
+
 
 	void ShowMotorSpeed();
 	void ShowDiscLoaded();
@@ -70,6 +72,11 @@ public:
 	void MotorSpeedToggle();
 
 	void PeriodicCheck();
+
+	Shooter::e_pusher Pusher();	// Returns the Pusher setting
+
+
+	void Pusher( Shooter::e_pusher value );	// Sets the Pusher to new value
 
 
 };

@@ -22,7 +22,7 @@ void CmdShooterShoot::Execute()
 	//fixme: this uses the raw speed get rather than the encoder setting. It may need to be changed if we get that working
 	if(shooter->FrontMotorRawSpeed() > 0.0)
 	{
-		shooter->PushDisc( true );
+		shooter->Pusher(Shooter::shoot);
 
 	}
 }

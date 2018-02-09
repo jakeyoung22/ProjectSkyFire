@@ -31,10 +31,12 @@
 	const double MOTOR_RAMP_RATE = 24.0;
 
 //Solenoids
-	const UINT32 SOL_SHIFT_HIGH					= 0;
+
 	const UINT32 SOL_SHIFT_LOW					= 1;
+	const UINT32 SOL_SHIFT_HIGH					= 2;
 	const UINT32 SOL_SHOOTER_LOADER 			= 2;
-	const UINT32 SOL_SHOOTER_UNJAM				= 3;
+	const UINT32 SOL_PUSHER_RETRACT				= 3;
+	const UINT32 SOL_SHOOTER_UNJAM				= 12;
 
 //Relay
 	const UINT32 RELAY_COMPRESSOR					= 1;
@@ -44,6 +46,8 @@
 //Pressure Switch
 	const UINT32 GPIO_PRESSURE						= 14;
 
+//Analog
+	const UINT32 ANALOG_PRESSURE_SENSOR				= 1;
 
 //Encoders
 	const UINT32 GPIO_LEFT_ENCODER_A 				= 1;
@@ -54,11 +58,10 @@
 	const UINT32 GPIO_FRONT_SHOOTER_ENCODER_A 		= 5;
 	const UINT32 GPIO_FRONT_SHOOTER_ENCODER_B 		= 6;
 
-	const UINT32 GPIO_DECK_LOW_LIMIT				= 7;
 
-	const UINT32 GPIO_DECK_PIVOT_ENCODER_A			= 8;
-	const UINT32 GPIO_DECK_PIVOT_ENCODER_B			= 9;
 
+	const float PNEUMATICS_PRESSURE_VOLTAGE_B		= 1.008;
+	const float PNEUMATICS_PRESSURE_VOLTAGE_M		= 63.344;
 
 	//	todo: Set this speed to something tolerable
 	#define MOTOR_SPEED_MAX		1000.0f
